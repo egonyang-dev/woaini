@@ -16,7 +16,7 @@
             font-family: Arial, sans-serif;
         }
         img {
-            max-width: 100%;
+            max-width: 80%;
             height: auto;
             display: none;
         }
@@ -30,10 +30,42 @@
     </style>
 </head>
 <body>
-    <img id="image" src="images/img1.jpg" alt="嘴型動畫">
+    <!-- 第一張圖片會在載入時顯示 -->
+    <img id="image" src="images/img1.jpg" alt="嘴型動畫" class="active">
     <div class="instructions">按下空白鍵來播放「我愛你」動畫！</div>
 
-    <script src="script.js"></script>
+    <script>
+        // 選取圖片元素
+        const image = document.getElementById('image');
+
+        // 定義圖片路徑陣列
+        const images = [
+            'images/img1.jpg',
+            'images/img2.jpg',
+            'images/img3.jpg',
+            'images/img4.jpg',
+            'images/img5.jpg',
+            'images/img6.jpg',
+            'images/img7.jpg',
+            'images/img8.jpg',
+            'images/img9.jpg',
+            'images/img10.jpg'
+        ];
+
+        // 當前圖片的索引
+        let currentIndex = 0;
+
+        // 監聽鍵盤事件
+        document.addEventListener('keydown', (event) => {
+            if (event.code === 'Space') {
+                // 防止空白鍵滾動頁面
+                event.preventDefault();
+
+                // 切換到下一張圖片
+                currentIndex = (currentIndex + 1) % images.length;
+                image.src = images[currentIndex];
+            }
+        });
+    </script>
 </body>
 </html>
-
