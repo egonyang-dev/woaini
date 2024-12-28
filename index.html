@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我愛你動畫</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: none;
+        }
+        img.active {
+            display: block;
+        }
+        .instructions {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="images/img1.jpg" alt="嘴型動畫">
+    <div class="instructions">按下空白鍵來播放「我愛你」動畫！</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
