@@ -3,69 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我愛你動畫</title>
+    <title>嘴型說我愛你</title>
     <style>
+        /* CSS 直接寫在這裡 */
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
         }
+
+        .container {
+            text-align: center;
+        }
+
         img {
             max-width: 80%;
             height: auto;
-            display: none;
         }
-        img.active {
-            display: block;
-        }
+
         .instructions {
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 18px;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <!-- 第一張圖片會在載入時顯示 -->
-    <img id="image" src="images/img1.jpg" alt="嘴型動畫" class="active">
-    <div class="instructions">按下空白鍵來播放「我愛你」動畫！</div>
+    <div class="container">
+        <img id="animation" src="images/01.png" alt="嘴型動畫">
+        <div class="instructions">按下空白鍵播放「我愛你」動畫！</div>
+    </div>
 
     <script>
-        // 選取圖片元素
-        const image = document.getElementById('image');
+        // JavaScript 直接寫在這裡
+        const animation = document.getElementById("animation");
 
-        // 定義圖片路徑陣列
         const images = [
-            'IMAGE/01.png',
-            'IMAGE/02.png',
-            'IMAGE/03.png',
-            'IMAGE/04.png',
-            'IMAGE/05.png',
-            'IMAGE/06.png',
-            'IMAGE/07.png',
-            'IMAGE/08.png',
-            'IMAGE/09.png',
-            'IMAGE/10.png',
-            'IMAGE/11.png',
-            'IMAGE/12.png',
+            "images/01.png",
+            "images/02.png",
+            "images/03.png",
+            "images/04.png",
+            "images/05.png",
+            "images/06.png",
+            "images/07.png",
+            "images/08.png",
+            "images/09.png",
+            "images/10.png",
         ];
 
-        // 當前圖片的索引
         let currentIndex = 0;
 
-        // 監聽鍵盤事件
-        document.addEventListener('keydown', (event) => {
-            if (event.code === 'Space') {
-                // 防止空白鍵滾動頁面
+        document.addEventListener("keydown", (event) => {
+            if (event.code === "Space") {
                 event.preventDefault();
-
-                // 切換到下一張圖片
                 currentIndex = (currentIndex + 1) % images.length;
-                image.src = images[currentIndex];
+                animation.src = images[currentIndex];
             }
         });
     </script>
