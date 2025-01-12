@@ -3,65 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>嘴型說我愛你</title>
+    <title>我愛你動畫</title>
     <style>
-        /* CSS 直接寫在這裡 */
         body {
-            margin: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
+            margin: 0;
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
         }
-
-        .container {
-            text-align: center;
-        }
-
         img {
             max-width: 80%;
             height: auto;
+            display: none;
         }
-
+        img.active {
+            display: block;
+        }
         .instructions {
             margin-top: 20px;
-            font-size: 18px;
-            color: #333;
+            font-size: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img id="animation" src="images/01.png" alt="嘴型動畫">
-        <div class="instructions">按下空白鍵播放「我愛你」動畫！</div>
-    </div>
+    <img id="image" src="images/01.png" alt="嘴型動畫" class="active">
+    <div class="instructions">按下空白鍵來播放「我愛你」動畫！</div>
 
     <script>
-        // JavaScript 直接寫在這裡
-        const animation = document.getElementById("animation");
-
+        const image = document.getElementById('image');
         const images = [
-            "images/01.png",
-            "images/02.png",
-            "images/03.png",
-            "images/04.png",
-            "images/05.png",
-            "images/06.png",
-            "images/07.png",
-            "images/08.png",
-            "images/09.png",
-            "images/10.png",
+            'images/01.png',
+            'images/02.png',
+            'images/03.png',
+            'images/04.png',
+            'images/05.png',
+            'images/06.png',
+            'images/07.png',
+            'images/08.png',
+            'images/09.png',
+            'images/10.png',
+            'images/11.png',
+            'images/12.png',
         ];
-
         let currentIndex = 0;
 
-        document.addEventListener("keydown", (event) => {
-            if (event.code === "Space") {
+        document.addEventListener('keydown', (event) => {
+            if (event.code === 'Space') {
                 event.preventDefault();
+
+                // 切換到下一張圖片
                 currentIndex = (currentIndex + 1) % images.length;
-                animation.src = images[currentIndex];
+                image.src = images[currentIndex];
+
+                // 在控制台打印目前圖片路徑
+                console.log(`目前顯示的圖片路徑: ${images[currentIndex]}`);
             }
         });
     </script>
